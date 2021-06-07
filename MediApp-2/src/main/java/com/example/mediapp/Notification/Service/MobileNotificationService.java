@@ -11,18 +11,13 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MobileNotificationService {
 
-	private static final String FIREBASE_API_URL = "https://fcm.googleapis.com/fcm/send";
-	private static final String FIREBASE_SERVER_KEY = "AAAAVtAO4Cg:APA91bFAf_bphj1T82AJayBEXzchUgNyVFPFk6xw7Q_XB8EtUAVdVjFSm73sl2jMrczfcnaYlBzDmssyK1rw-Js65tpIBDbYafjL-pz7thX7jaBD5vyKBlxOiTweFVKIf4dxDHW5heYN";
+	private static final String FIREBASE_API_URL = "URL";
+	private static final String FIREBASE_SERVER_KEY = "KEY";
 
 	@Async
 	  public CompletableFuture<String> send(HttpEntity<String> entity) {
 	 
 	    RestTemplate restTemplate = new RestTemplate();
-	 
-	    /**
-	    https://fcm.googleapis.com/fcm/send
-	    Content-Type:application/json
-	    Authorization:key=FIREBASE_SERVER_KEY*/
 	 
 	    ArrayList<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
 	    interceptors.add(new HeaderRequestInterceptor("Authorization", "key=" + FIREBASE_SERVER_KEY));
